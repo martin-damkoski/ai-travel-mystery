@@ -2,10 +2,10 @@ import os
 from google import genai
 
 MODEL_NAME = "gemini-3-flash-preview"
-GEMINI_API_KEY =
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 def generate_text(prompt: str) -> str:
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    api_key = GEMINI_API_KEY
 
     if not api_key:
         return "GEMINI_API_KEY недостасува. Провери .env фајл."
