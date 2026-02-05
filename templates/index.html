@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home • AI Travel Mystery{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Погоди ја локацијата преку траги!</h1>
+  <p class="hero-description">
+    Биди денеска ти истражувач! Погоди ја тајната локација користејќи
+      ги напишаните траги, додека AI е тука да го
+      потврди одговорот со нејзино објаснување.
+  </p>
+  <div class="row gap">
+    <a class="btn btn-primary" href="{{ url_for('games_new') }}">Започни погодување</a>
+    <a class="btn" href="{{ url_for('games_list') }}">Види историја</a>
+  </div>
+</section>
+
+<section class="card glass-card">
+  <h2>Како работи?</h2>
+  <ol class="ol">
+    <li>Креираш нова игра (лесно/средно/тешко).</li>
+    <li>Ги анализираш добиените траги.</li>
+    <li>Внесуваш одговор (град или држава).</li>
+    <li>По секој одговор, побарај AI објаснување за да научиш нешто ново.</li>
+      <li>(што знаеш,можеби понатака наученото ќе ти се најде некаде :] ) </li>
+  </ol>
+</section>
+{% endblock %}

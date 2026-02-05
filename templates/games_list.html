@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Историја  AI Travel Mystery{% endblock %}
+
+{% block content %}
+<div class="row between">
+  <h1>Историја</h1>
+  <a class="btn btn-primary" href="{{ url_for('games_new') }}">+ Нова игра</a>
+</div>
+
+{% if not games %}
+  <p>Немаш игри уште. Направи прва </p>
+{% else %}
+  <div class="grid">
+    {% for g in games %}
+      <a class="card card-link" href="{{ url_for('game_detail', game_id=g.id) }}">
+        <div class="row between">
+          <strong>Игра #{{ g.id }}</strong>
+          <span class="pill pill-{{ g.status }}">{{ g.status }}</span>
+        </div>
+        <div class="muted">Тежина: {{ g.difficulty }}</div>
+        <div class="muted">Креирана: {{ g.created_at.strftime("%Y-%m-%d %H:%M") }}</div>
+        {% if g.status != 'active' %}
+          <div class="small">Одговор: {{ g.target_city }}, {{ g.target_country }}</div>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}
